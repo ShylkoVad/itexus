@@ -1,5 +1,6 @@
 package com.example.itexus.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -14,6 +15,7 @@ import lombok.Data;
 public class PhoneNumber extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
     private User user;
 
     @Column(name = "phone_number", nullable = false)
