@@ -5,6 +5,7 @@ import com.example.itexus.repositories.PhoneNumberRepository;
 import com.example.itexus.repositories.RoleRepository;
 import com.example.itexus.repositories.UserRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +49,7 @@ public class UserController {
 
     // Создать нового пользователя
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         // Здесь нужно добавить логику по обработке ролей и номеров телефонов
         User savedUser = userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
