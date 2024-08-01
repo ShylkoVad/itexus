@@ -1,5 +1,7 @@
 package com.example.itexus.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +11,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -40,7 +43,8 @@ public class User extends BaseEntity {
 
     @NotNull(message = "Поле должно быть заполнено!")
     @NotBlank(message = "Поле должно быть заполнено!")
-    @Column(name = "email")
+    @Email(message = "Неверный формат email!")
+    @Column(name = "email", unique = true)
     private String email;
 
     @ManyToMany(fetch = FetchType.EAGER)
