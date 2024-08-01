@@ -5,7 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Pattern;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "phone_numbers")
 public class PhoneNumber extends BaseEntity {
@@ -14,6 +17,7 @@ public class PhoneNumber extends BaseEntity {
     private User user;
 
     @Column(name = "phone_number", nullable = false)
+    @Pattern(regexp = "^375\\d{9}$", message = "Телефон должен иметь формат 375*********")
     private String phoneNumber;
 
 }
