@@ -8,3 +8,6 @@ CREATE TABLE itexus.user_roles (
 
 INSERT INTO itexus.user_roles (user_id, role_id)
 VALUES ('1', '1');
+
+INSERT INTO itexus.user_roles (user_id, role_id)
+VALUES ('1', '3');
