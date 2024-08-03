@@ -9,3 +9,6 @@ CREATE TABLE IF NOT EXISTS itexus.users (
 
 INSERT INTO itexus.users (first_name, last_name, email)
 VALUES ('Вадим', 'Шилько', 'shilko_vad@mail.ru');
+
+INSERT INTO itexus.users (first_name, last_name, email)
+VALUES ('София', 'Шилько', '1221_vad@mail.ru');

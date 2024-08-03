@@ -10,3 +10,6 @@ VALUES ('1', '375297191205');
 
 INSERT INTO itexus.phone_numbers (user_id, phone_number)
 VALUES ('1', '375291111111');
+
+INSERT INTO itexus.phone_numbers (user_id, phone_number)
+VALUES ('2', '375290000000');

@@ -11,3 +11,6 @@ VALUES ('1', '1');
 
 INSERT INTO itexus.user_roles (user_id, role_id)
 VALUES ('1', '3');
+
+INSERT INTO itexus.user_roles (user_id, role_id)
+VALUES ('2', '2');
