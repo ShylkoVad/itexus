@@ -14,9 +14,9 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private final UserRepository userRepository;
 
+    @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -34,8 +34,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(int id, User user) {
-        user.setId(id);
-        return userRepository.save(user);
+        // Проверяем существование пользователя перед обновлением
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Пользователя с id %d не найдено.", id)));
+
+        // Обновляем поля пользователя
+        existingUser.setFirst_name(user.getFirst_name());
+        existingUser.setLast_name(user.getLast_name());
+        existingUser.setEmail(user.getEmail());
+        existingUser.setRoles(user.getRoles());
+        existingUser.setPhoneNumbers(user.getPhoneNumbers());
+
+        return userRepository.save(existingUser);
     }
 
     @Override

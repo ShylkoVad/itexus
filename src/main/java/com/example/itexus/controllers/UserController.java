@@ -24,14 +24,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
+//    @Autowired
+//    private RoleRepository roleRepository;
 
-    @Autowired
-    private PhoneNumberRepository phoneNumberRepository;
+//    @Autowired
+//    private PhoneNumberRepository phoneNumberRepository;
 
     // Получить всех пользователей
     @GetMapping

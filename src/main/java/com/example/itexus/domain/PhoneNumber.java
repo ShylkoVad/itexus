@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,11 +24,12 @@ import lombok.experimental.SuperBuilder;
 public class PhoneNumber extends BaseEntity {
 
     @ManyToOne (optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+//    @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;
 
     @Column(name = "phone_number", nullable = false)
+    @NotNull(message = "Номер телефона не может быть пустым")
     @Pattern(regexp = "^375\\d{9}$", message = "Телефон должен иметь формат 375*********")
     private String phoneNumber;
 
